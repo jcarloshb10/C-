@@ -1,0 +1,17 @@
+EJERCICIOS:
+1) MULTIPLICAR 2 MATRICES.
+	Primero digite las matrices primero 1 y luego 2 sus filas y columnas y luegodecir si se puede multiplicar o no.
+
+2) CALCULALR DETERMINANTE MATRIZ 3*3.  y leer sobre el determinante de matriz cuadrada. (leer) 
+	Solicitar datos de una matriz de 3*3. Elija la fila y tache y columna y tache y pase suma oresta y con una formula. 
+3) DETERMINAR SI UNA PALABRA O FRASE ES PALÍNDROME O NO.
+	se leen igual de la derecha y dela izquierda ejemplo: ana=ana....  con matrices y vectores. 
+4) JUEGO DEL AHORCADO.
+con contadores .. 3 palabras....y matrices y ir descartando por letra.. ejemplo: n no esta o n si esta.
+5) JUEGO DE TRIQUI.
+con matriz de 3*3......  
+
+HACER EL EJERCICIO NUMERO 3 Y 5 ---- EL DE PALINDROMA Y DEL TRIQUI...
+ADEMÁS HACER UN EJERCICIO ENTRE EL 1,2 Y 4---- HACER 3 EJERCICIOS EN TOTAL..
+FECHA DE ENTREGA....:::  7 DE JUNIO... 
+CORREO::: javierjx@gmail.com
