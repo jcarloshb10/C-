@@ -69,6 +69,13 @@ class OtraClase{
 	public:
 		void metodoClaseAmiga(int x, MiClase2& mc);
 };
+
+struct Points{
+	double x,y;
+};
+
+struct Points leer_datos(Points P);
+double distancia(Points P1, Points P2);
 	
 int main()
 {
@@ -572,11 +579,32 @@ int main()
 	
 ///////////////////////////////////////////////////////////////////////////////////////
 
-	//Pág. 74/75/76/77
+	//Pág. 74/75/76/77 -> página 80
 	//Ejercicios práctica 1
 	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+//	struct Points P1, P2;
+//	P1=leer_datos(P1);
+//	P2=leer_datos(P2);
+//	
+//	double dist = distancia(P1,P2);
+//	cout<<"La distancia es: "<<dist<<endl;
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
 	
 	
+}
+
+Points leer_datos(Points P){
+	cout<<"Ingrese coordenadas del punto:\n";
+	cin>>P.x; cin>>P.y;
+	return P;
+}
+
+double distancia(Points P1, Points P2){
+	return (sqrt(P1.x*P2.x));
 }
 
 void OtraClase::metodoClaseAmiga(int x, MiClase2& mc){
