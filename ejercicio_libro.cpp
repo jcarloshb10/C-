@@ -11,6 +11,23 @@ using namespace std;
 fstream LeerArchivo;
 int max(int num);
 int randd(int num);
+double raizc(double num1);
+void Saldo(double euros);
+struct complex
+	{
+		double real, imag;
+	};
+	
+struct cuadrado{
+	double lado;
+};
+
+struct triangulo{
+	double base, altura;
+};
+
+double acuadrado(cuadrado p);	
+double atriangulo(triangulo p);
 
 int main()
 {
@@ -347,8 +364,85 @@ int main()
 	
 	////////////////////////////////////////////////////////
 	
+//	int num1, num2;
+//	cout<<"raiz cuadrada";
+//	cout<<"Ingrese número:\n";
+//	cin>>num1;
+//	if(!raizc(num1)){
+//		cout<<"El número no es válido.\n";
+//	}
+
+
+///////////////////////////////////////////////////////////////
+
+	//static variables en void Saldo
+	//static double mi_dinero;
+	
+//	Saldo(1000);
+//	Saldo(-1500);
+//	return -1;
+
+//////////////////////////////////////////////////////////////
+
+	//estructuras _ abstracción
+//	struct complex a; //se puede omitir el complex
+//	a.real=1;
+//	a.imag=1.2;
+//	cout<<a.real<<"+"<<a.imag<<"i"<<endl;
+//	return 0;
+
+//////////////////////////////////////////////////////////////
+
+//	int opt;
+//	cout<<"Área de cuadrado o triangulo?: 1 o 2\n";
+//	cin>>opt;
+//	switch(opt){
+//
+//		case 1:
+//			cuadrado c;
+//			cout<<"Ingrese lado del cuadrado:\t";
+//			cin>>c.lado;
+//			cout<<"\nEl área del cuadrado es: "<<acuadrado(c)<<endl;
+//			break;
+//		case 2:
+//			triangulo t;
+//			cout<<"Ingrese base del triangulo:\t";
+//			cin>>t.base;
+//			cout<<"\nIngrese altura del triangulo\t";
+//			cin>>t.altura;
+//			cout<<"\nEl área del triangulo es: "<<atriangulo(t)<<endl;
+//			break;
+//		}
+
+//////////////////////////////////////////////////////////////
+
 	
 
+}
+
+double acuadrado(cuadrado p){
+	return (p.lado*p.lado);
+}
+
+double atriangulo(triangulo p){
+	return ((p.base*p.altura)/2);
+}
+
+void Saldo(double euros){
+	static double mi_dinero;
+	mi_dinero += euros;
+	cout<<"Tengo en mi cuenta "<<mi_dinero<<" euros"<<endl;
+}
+
+double raizc(double num1){
+	//double num1;
+	if(sqrt(num1)>=0){
+		cout<<"La raiz de "<<num1<<" es: "<<sqrt(num1)<<endl;
+		return 1;
+	}
+	else{
+		return 0;
+	}
 }
 
 int randd(int num){
