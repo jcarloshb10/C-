@@ -29,6 +29,47 @@ struct triangulo{
 double acuadrado(cuadrado p);	
 double atriangulo(triangulo p);
 
+union FloInt{
+	int n;
+	double f;
+	};
+	
+class complex_c{
+	public:
+		double real, imag;
+		complex_c(double a, double b){ //Constructor
+			real=a;imag=b;
+		}
+		~complex_c(){} //Destructor
+		
+	};
+	
+class MiClase{
+		int var1;	//Variable de clase
+		const double var2 = 3.14159; //Variable de la clase
+		public:
+		double getValue();
+		void cambiarVar1(int a); //Declaración de un método de la clase
+		double calcularArea(const double& x, const double& y); //Declaración de un método de la clase
+		private:
+		double getValue2();
+	};	
+
+class MiClase2{
+		public:
+		void printMembers(); //Declaración de un método de la clase
+		friend class OtraClase; //Se usa friend para la clase amiga
+		friend void	funcionAmiga(int x, MiClase2& mc); //Declaración de un método de la clase
+		private:
+		int a;
+	};
+	
+	//CLASE AMIGA
+class OtraClase{
+	public:
+		void metodoClaseAmiga(int x, MiClase2& mc);
+};
+	
 int main()
 {
 	/*#define pi 3.1416
@@ -416,9 +457,157 @@ int main()
 
 //////////////////////////////////////////////////////////////
 
+	//Uniones, similar a struct pero las variables comparten la misma dirección de memoria
+////	union FloInt{
+////		int i;
+////		float f;
+////	};
 	
+//	FloInt Ejemplo;
+//	Ejemplo.n=1;
+//	Ejemplo.f=43.3;
+//	double num = Ejemplo.n;          //tanto n como f compartirán la misma memoria
+//	cout<<"Es: "<<Ejemplo.n<<endl;   //num depende de la codificación de f
+//	cout<<"Es: "<<num<<endl;
 
+///////////////////////////////////////////////////////////////////
+
+	//typedef
+//	typedef int entero;
+//	int a = 10;
+//	entero e=20;
+//	e = a;
+//	a = e;
+//	cout<<a<<" y "<<e<<endl;
+
+///////////////////////////////////////////////////////////////////////
+
+	//CLASES: Abstracción que reúne datos y operaciones con los datos.
+	
+	//Clase = datos + operaciones (Conjunto de datos (atributos) y operaciones (métodos)) son miembros
+	//Encapsulamiento public, constructores y destructores
+		
+//	class complex{
+//		public:
+//			double real, imag;
+//			complex (double a, double b){
+//				real=a;imag=b;
+//			}
+//		private:
+//			complex (){
+//			}
+//	};
+
+
+//	complex_c a (1,1);
+
+
+///////////////////////////////////////////////
+
+	// :: el método se define por fuera de la clase, pero se declara dentro de la clase
+	// para decir que el método pertenece a esa clase :: es para indicar que pertenece
+	
+//	class MiClase{
+//		int var1;	//Variable de clase
+//		const double var2 = 3.14159; //Variable de la clase
+//		
+//		void cambiarVar1(int a); //Declaración de un método de la clase
+//		double calcularArea(const double& x, const double& y); //Declaración de un método de la clase
+//	};
+
+	//Definición de los métodos  de la clase
+//	void MiClase::cambiarVar1(int a){
+//		var1 = a; 
+//	}
+//
+//	double MiClase::calcularArea(const double&, const double& y){
+//		return x*y*var2;
+//	}
+	
+//	MiClase miObjeto;
+//	miObjeto.cambiarVar1(5);
+//	cout<<miObjeto.getValue()<<endl;
+//	double var = miObjeto.calcularArea(34.6, 23.9);
+//	cout<<var<<endl;
+	
+	//////////////////////////////////////////////////////////////////
+	
+//	MiClase miObjeto;
+//	//getValue2 es privado, no acederá, pero si desde otro miembro público
+//	//cout<<miObjeto.getValue2()<<endl;
+//	cout<<miObjeto.getValue()<<endl; //accediendo a getValue2 desde el método público getValue
+//	
+	//////////////////////////////////////////////////////////////////
+	
+	//clase o función AMIGA _ FRIEND, declarar al interior de la clase	
+	//Palabra reservada friend
+	//Si la clase A declara como amiga a la clase B, no significa que B la considere a A amiga
+	
+//	class MiClase2{
+//		public:
+//		void printMembers(); //Declaración de un método de la clase
+//		friend void	funcionAmiga(int x, MiClase& mc); //Declaración de un método de la clase
+//		private:
+//		int a;
+//	};
+	
+//	MiClase2 obj;
+//	funcionAmiga(5, obj);
+//	obj.printMembers();
+//	
+//	return 0;
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+	//Clase Amiga //declarada arriba
+//	class OtraClase{
+//		public:
+//			void metodoClaseAmiga(int x, MiClase2& mc)
+//	};	
+
+//	MiClase2 obj;
+//	OtraClase obj2;
+//	obj2.metodoClaseAmiga(10, obj);
+//	obj.printMembers();
+	
+///////////////////////////////////////////////////////////////////////////////////////
+
+	//Pág. 74/75/76/77
+	//Ejercicios práctica 1
+	
+	
+	
 }
+
+void OtraClase::metodoClaseAmiga(int x, MiClase2& mc){
+	mc.a = x;
+}
+
+void MiClase2::printMembers(){
+	cout<<"El valor de 'a' es: "<<a<<endl;
+}
+
+void funcionAmiga(int x, MiClase2& mc){
+	mc.a = x; //Acceso a un miembro privado del objeto mc de la clase MiClase
+}
+
+double MiClase::getValue2(){ //Los get van sin parámetros y retornan 
+	return var2;
+}
+
+double MiClase::getValue(){
+	//Desde este público puedo acceder al privado getValue2() 
+	return (getValue2());
+}
+
+void MiClase::cambiarVar1(int a){ //Los set o de cambio van con al menos un parámetro para cambiar
+	var1 = a; 
+}
+
+double MiClase::calcularArea(const double& x, const double& y){
+	return x*y*var2;
+}
+
 
 double acuadrado(cuadrado p){
 	return (p.lado*p.lado);
